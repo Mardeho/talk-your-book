@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk Your Book Authority Package | Build Your Legacy Ecosystem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1628;
+      --navy-mid: #102040;
+      --navy-light: #16305a;
+      --gold: #C9A84C;
+      --gold-light: #E2C47A;
+      --gold-pale: #f5e9c8;
+      --white: #FFFFFF;
+      --off-white: #F8F5EE;
+      --text-muted: #8A9BBF;
+      --border: rgba(201,168,76,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 10px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(22,48,90,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      margin-bottom: 32px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 300;
+      max-width: 900px;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 400;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 18px 48px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 17px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.07);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 56px;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--gold);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER ── */
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+      max-width: 200px;
+      margin-bottom: 64px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 24px; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── PROBLEM SECTION ── */
+    .problem-section {
+      background: var(--navy-mid);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .problem-card {
+      background: var(--navy);
+      padding: 40px 32px;
+      position: relative;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .problem-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .problem-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .problem-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── SOLUTION SECTION ── */
+    .solution-intro {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .solution-intro h2 {
+      font-size: clamp(40px, 5.5vw, 72px);
+      margin-bottom: 24px;
+    }
+
+    .solution-intro p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .highlight-box {
+      border: 1px solid var(--border);
+      padding: 32px 40px;
+      margin: 48px 0;
+      background: rgba(201,168,76,0.04);
+      text-align: left;
+    }
+
+    .highlight-box p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3vw, 30px);
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── PHASES ── */
+    .phases-section { background: var(--navy-mid); }
+
+    .phases-timeline {
+      position: relative;
+      margin-top: 16px;
+    }
+
+    .phases-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+      transform: translateX(-50%);
+    }
+
+    .phase-block {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 80px;
+    }
+
+    .phase-block:nth-child(even) .phase-content { grid-column: 3; }
+    .phase-block:nth-child(even) .phase-node { grid-column: 2; }
+    .phase-block:nth-child(even) .phase-empty { grid-column: 1; }
+    .phase-block:nth-child(odd) .phase-content { grid-column: 1; text-align: right; }
+    .phase-block:nth-child(odd) .phase-node { grid-column: 2; }
+    .phase-block:nth-child(odd) .phase-empty { grid-column: 3; }
+
+    .phase-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .phase-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .phase-content {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      padding: 36px;
+      position: relative;
+    }
+
+    .phase-content:hover {
+      border-color: rgba(201,168,76,0.5);
+      transition: border-color 0.3s;
+    }
+
+    .phase-tag {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+
+    .phase-content h3 {
+      font-size: clamp(24px, 3vw, 32px);
+      margin-bottom: 8px;
+    }
+
+    .phase-duration {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .phase-content p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .phase-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .phase-deliverables li {
+      font-size: 14px;
+      color: var(--white);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .phase-block:nth-child(odd) .phase-deliverables li {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .phase-deliverables li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 8px;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .phase-block:nth-child(odd) .phase-deliverables li::before {
+      order: 1;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+    }
+
+    .pillar-card {
+      border: 1px solid var(--border);
+      padding: 48px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .pillar-card:hover {
+      border-color: rgba(201,168,76,0.6);
+      transform: translateY(-4px);
+    }
+
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .pillar-card:hover::after { opacity: 1; }
+
+    .pillar-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .pillar-card h3 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .pillar-subtitle {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .pillar-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pillar-features li {
+      font-size: 13px;
+      color: var(--white);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pillar-features li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── FLYWHEEL ── */
+    .flywheel-section { background: var(--navy-mid); }
+
+    .flywheel-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .flywheel-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .flywheel-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .flywheel-center span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+
+    .flywheel-ring {
+      position: absolute;
+      inset: 10%;
+      border-radius: 50%;
+      border: 1px dashed rgba(201,168,76,0.35);
+      animation: spin 30s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .flywheel-outer {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .flywheel-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .fw-dot {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+      font-size: 20px;
+    }
+
+    .fw-label {
+      font-size: 10px;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .flywheel-content h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      margin-bottom: 20px;
+    }
+
+    .flywheel-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .flywheel-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .flywheel-steps li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding-top: 4px;
+    }
+
+    .step-text strong {
+      color: var(--white);
+      display: block;
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    /* ── AUDIT SECTION ── */
+    .audit-section {
+      background: var(--navy);
+    }
+
+    .audit-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .audit-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .audit-intro h2 { font-size: clamp(36px, 5vw, 60px); margin: 12px 0 16px; }
+    .audit-intro p { font-size: 16px; color: var(--text-muted); max-width: 520px; margin: 0 auto; }
+
+    .audit-card {
+      border: 1px solid var(--border);
+      padding: 48px;
+      background: rgba(22,48,90,0.3);
+    }
+
+    .audit-category {
+      margin-bottom: 36px;
+    }
+
+    .audit-category h4 {
+      font-size: 18px;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .audit-category h4::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .audit-question {
+      margin-bottom: 20px;
+    }
+
+    .audit-question p {
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .audit-scale {
+      display: flex;
+      gap: 8px;
+    }
+
+    .audit-scale label {
+      flex: 1;
+      text-align: center;
+    }
+
+    .audit-scale input[type="radio"] { display: none; }
+
+    .scale-btn {
+      display: block;
+      padding: 8px 4px;
+      border: 1px solid rgba(201,168,76,0.3);
+      text-align: center;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .audit-scale input[type="radio"]:checked + .scale-btn {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+      font-weight: 600;
+    }
+
+    .scale-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .scale-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    .audit-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    .audit-submit {
+      text-align: center;
+    }
+
+    #audit-result {
+      display: none;
+      margin-top: 40px;
+      border: 1px solid var(--gold);
+      padding: 36px;
+      background: rgba(201,168,76,0.05);
+      text-align: center;
+    }
+
+    #audit-result h3 {
+      font-size: 32px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    #audit-result p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    #result-phase {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+      margin: 16px 0;
+    }
+
+    /* ── FOR SECTION ── */
+    .for-section { background: var(--navy-mid); }
+
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 56px;
+    }
+
+    .for-column h3 {
+      font-size: 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .for-column h3 .for-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+
+    .for-badge.yes { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .for-badge.no { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+
+    .for-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .for-list li {
+      font-size: 15px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .for-list li:last-child { border-bottom: none; }
+
+    .for-list.yes li::before {
+      content: '✓';
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .for-list.no li::before {
+      content: '✗';
+      color: var(--text-muted);
+      opacity: 0.4;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--navy); }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 28px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--gold-light); }
+
+    .faq-icon {
+      font-size: 20px;
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-answer { max-height: 300px; }
+
+    .faq-answer-inner {
+      padding-bottom: 28px;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+      text-align: center;
+      padding: 120px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(40px, 6vw, 80px);
+      max-width: 800px;
+      margin: 16px auto 24px;
+    }
+
+    .final-cta p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 48px;
+    }
+
+    .final-cta-note {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid var(--border);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+
+      .problem-grid { grid-template-columns: 1fr; gap: 0; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .flywheel-wrapper { grid-template-columns: 1fr; gap: 48px; }
+      .for-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-stats { gap: 32px; }
+
+      .phases-timeline::before { display: none; }
+      .phase-block {
+        display: block;
+        margin-bottom: 32px;
+      }
+      .phase-node { display: none; }
+      .phase-content { text-align: left !important; }
+      .phase-deliverables li { flex-direction: row !important; }
+      .phase-deliverables li::before { order: 0 !important; }
+
+      .audit-card { padding: 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Talk Your Book™</a>
+  <ul class="nav-links">
+    <li><a href="#phases">The Journey</a></li>
+    <li><a href="#pillars">What's Included</a></li>
+    <li><a href="#flywheel">The Flywheel</a></li>
+    <li><a href="#audit">Legacy Audit</a></li>
+  </ul>
+  <a href="#audit" class="nav-cta">Take the Legacy Audit</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">A 12-Month Authority Transformation</div>
+  <h1>Stop Owning a <em>Business.</em><br/>Start Owning an <em>Industry.</em></h1>
+  <p class="hero-sub">The Talk Your Book Authority Package</p>
+  <p class="hero-desc">
+    A private 12-month engagement for founders, executives, and thought leaders who are done being the best-kept secret in their field — and ready to build an ecosystem of authority that works while they sleep.
+  </p>
+  <div class="hero-cta-group">
+    <a href="#audit" class="btn-primary">Take the Free Legacy Audit</a>
+    <a href="#phases" class="btn-secondary">See the 12-Month Journey</a>
+    <p class="hero-note">Limited to 6 partners per cohort</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">12</span>
+      <span class="stat-label">Months</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Phases</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Legacy</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The Authority Gap</div>
+      <h2>Your Genius Is Trapped.<br/>Here's Why.</h2>
+      <p>Most high-performing founders face the same three invisible ceilings — and a book alone won't fix them.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>You're the bottleneck</h3>
+        <p>Every lead, every sale, every piece of content depends on you showing up. If you stop talking, revenue stops flowing. That's not a business — that's a high-paid job.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>You have no authority asset</h3>
+        <p>When a dream client Googles you, they find a service provider. Not an author. Not a thought leader. Without a published book, your credibility ceiling is permanently low.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>Your ecosystem is leaking</h3>
+        <p>Even if you have a book — without a client acquisition system, a content engine, and a lead pipeline working in sync, you're leaving a seven-figure opportunity on the table every month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section style="background: var(--navy); padding: 100px 24px;">
+  <div class="container">
+    <div class="solution-intro">
+      <div class="eyebrow">The Solution</div>
+      <h2>We Don't Write Your Book.<br/>We Build Your Empire.</h2>
+      <p>Talk Your Book is a 12-month, high-touch authority partnership that takes you from overlooked expert to Category of One — using your intellectual property as the engine.</p>
+
+      <div class="highlight-box">
+        <p>"Most authors launch a book and then it dies. In the Talk Your Book framework, the book is just the engine. We build the entire fuel system around it."</p>
+      </div>
+
+      <p>Across three distinct phases, we extract your genius, publish your authority, structure your business ecosystem, and activate a fully automated client acquisition machine — so you can stay in your Zone of Genius while your brand compounds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHASES -->
+<section id="phases" class="phases-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The 12-Month Journey</div>
+      <h2>Three Phases.<br/>One Complete Transformation.</h2>
+      <p>Every phase has a clear outcome. By month 12, you own a self-sustaining authority ecosystem.</p>
+    </div>
+
+    <div class="phases-timeline">
+
+      <!-- Phase 1 -->
+      <div class="phase-block">
+        <div class="phase-content">
+          <div class="phase-tag">Phase One</div>
+          <h3>The Book</h3>
+          <div class="phase-duration">Months 1 – 6 · The Asset Extraction</div>
+          <p>Using the AI-driven "Talk Your Book" framework, we extract your genius — your frameworks, your story, your methodology — and transform it into a professionally published book that acts as your 24/7 brand ambassador and ultimate authority asset.</p>
+          <ul class="phase-deliverables">
+            <li>AI-guided manuscript extraction (minimal time on your end)</li>
+            <li>Complete ghost-writing and editorial development</li>
+            <li>Brand positioning & intellectual property framework</li>
+            <li>Professional publishing through The 1 and Only Publishing</li>
+            <li>Published Author status — your credibility ceiling rises permanently</li>
+          </ul>
+        </div>
+        <div class="phase-node">
+          <div class="phase-dot">I</div>
+        </div>
+        <div class="phase-empty"></div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="phase-block">
+        <div class="phase-empty"></div>
+        <div class="phase-node">
+          <div class="phase-dot">II</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-tag">Phase Two</div>
+          <h3>The Business Structure</h3>
+          <div class="phase-duration">Months 7 – 9 · The Ecosystem Build</div>
+          <p>With your book live, we architect the business infrastructure that turns your authority asset into a lead-generating, client-attracting ecosystem. This is where your brand becomes a machine.</p>
+          <ul class="phase-deliverables">
+            <li>Authority Flywheel activation — speaking, media, and podcast pitch kits</li>
+            <li>LinkedIn optimization and outbound prospecting engine</li>
+            <li>DM to Done™ client acquisition system implementation</li>
+            <li>Offer architecture — aligning your services to your book's framework</li>
+            <li>Automated content engine — repurposing your book into 30+ monthly assets</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="phase-block">
+        <div class="phase-content">
+          <div class="phase-tag">Phase Three</div>
+          <h3>Client Acquisition & Scale</h3>
+          <div class="phase-duration">Months 10 – 12 · The Revenue Activation</div>
+          <p>In the final phase, The 1 and Only Agency takes the wheel. Our AI systems and agency team manage your outbound outreach, pipeline, and content — so your book continues working while you focus on closing and delivering.</p>
+          <ul class="phase-deliverables">
+            <li>AI-powered outbound LinkedIn prospecting to your Dream 100</li>
+            <li>Pipeline management with bi-monthly Authority Dashboard reviews</li>
+            <li>Book-to-lead funnel with automated nurture sequences</li>
+            <li>High-ticket backend offer integration and sales support</li>
+            <li>Profitability optimization — maximizing ROI on your authority investment</li>
+          </ul>
+        </div>
+        <div class="phase-node">
+          <div class="phase-dot">III</div>
+        </div>
+        <div class="phase-empty"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars" style="background: var(--navy); padding: 100px 24px;">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">What's Included</div>
+      <h2>Three Systems.<br/>One Unified Ecosystem.</h2>
+      <p>Your authority package combines three proven systems, each designed to build on the last.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">01</div>
+        <h3>The DM to Done™ System</h3>
+        <div class="pillar-subtitle">Client Acquisition Framework</div>
+        <p>A proven, repeatable framework for turning cold outreach into signed contracts — without awkward sales calls or chasing leads.</p>
+        <ul class="pillar-features">
+          <li>High-conversion DM scripts tailored to your voice</li>
+          <li>AI-scoring system to identify sales-ready leads</li>
+          <li>Pipeline tracking and nurture sequences</li>
+          <li>Dream 100 prospect identification methodology</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">02</div>
+        <h3>Client Acquisition System</h3>
+        <div class="pillar-subtitle">Outbound Lead Generation Engine</div>
+        <p>An AI-driven outbound machine that scans LinkedIn for your ideal clients, personalizes outreach at scale, and fills your pipeline — without manual effort.</p>
+        <ul class="pillar-features">
+          <li>LinkedIn profile optimization for inbound attraction</li>
+          <li>Automated personalized outreach at scale</li>
+          <li>Lead scoring and prioritization dashboard</li>
+          <li>Social reciprocity system — appear in your Dream 100's feed daily</li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-icon">03</div>
+        <h3>The Authority Engine</h3>
+        <div class="pillar-subtitle">Content & Thought Leadership System</div>
+        <p>Your book becomes 365 days of thought leadership. One chapter generates 20-30 pieces of content — LinkedIn posts, newsletters, short videos, and podcast hooks — all in your voice.</p>
+        <ul class="pillar-features">
+          <li>30-day omni-channel content flow from your manuscript</li>
+          <li>Speaking pitch kit and podcast guest framework</li>
+          <li>Media feature strategy and journalist outreach templates</li>
+          <li>Email list building and book-to-lead funnel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLYWHEEL -->
+<section id="flywheel" class="flywheel-section">
+  <div class="container">
+    <div class="flywheel-wrapper">
+      <!-- Visual -->
+      <div class="flywheel-visual">
+        <div class="flywheel-outer"></div>
+        <div class="flywheel-ring"></div>
+        <div class="flywheel-center">
+          <span>YOUR<br/>BOOK</span>
+        </div>
+
+        <!-- Nodes positioned around the circle -->
+        <div class="flywheel-node" style="top:4%; left:50%;">
+          <div class="fw-dot">🎤</div>
+          <div class="fw-label">Speaking</div>
+        </div>
+        <div class="flywheel-node" style="top:25%; left:95%;">
+          <div class="fw-dot">🎙</div>
+          <div class="fw-label">Podcasts</div>
+        </div>
+        <div class="flywheel-node" style="top:70%; left:93%;">
+          <div class="fw-dot">📰</div>
+          <div class="fw-label">Media</div>
+        </div>
+        <div class="flywheel-node" style="top:93%; left:50%;">
+          <div class="fw-dot">✍️</div>
+          <div class="fw-label">Content</div>
+        </div>
+        <div class="flywheel-node" style="top:70%; left:7%;">
+          <div class="fw-dot">💼</div>
+          <div class="fw-label">Clients</div>
+        </div>
+        <div class="flywheel-node" style="top:25%; left:5%;">
+          <div class="fw-dot">🔁</div>
+          <div class="fw-label">More Reach</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="flywheel-content">
+        <div class="eyebrow">The Authority Flywheel</div>
+        <h2>Once It Spins,<br/>It Never Stops.</h2>
+        <p>The real value of a book isn't the book itself — it's the authority ecosystem it creates around you. Each channel feeds the others. Over time, the system compounds.</p>
+        <p>This is the difference between launching a book and building a legacy.</p>
+
+        <ul class="flywheel-steps">
+          <li>
+            <span class="step-num">1</span>
+            <div class="step-text">
+              <strong>The Book opens the door</strong>
+              Event organizers, podcast hosts, and journalists prefer working with authors. You become the credible voice in your industry.
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div class="step-text">
+              <strong>Visibility creates inbound</strong>
+              Every speaking slot, podcast, and media feature sends new audiences to your book — and into your pipeline.
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div class="step-text">
+              <strong>The flywheel accelerates</strong>
+              As opportunities compound, your authority grows — and so does demand for your highest-level work.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY AUDIT -->
+<section id="audit" class="audit-section">
+  <div class="container">
+    <div class="audit-intro">
+      <div class="eyebrow">Take the Assessment</div>
+      <h2>The Legacy Audit</h2>
+      <p>Score yourself on each pillar to discover where your Authority Gap is — and which phase of Talk Your Book you need most.</p>
+    </div>
+
+    <div class="audit-wrapper">
+      <div class="audit-card">
+        <form id="auditForm">
+
+          <!-- CATEGORY 1 -->
+          <div class="audit-category">
+            <h4>Authority Asset</h4>
+
+            <div class="audit-question">
+              <p>I have a published, high-quality book that acts as my 24/7 brand ambassador.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q1" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q1" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q1" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q1" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q1" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>When a high-value prospect Googles me, the first result shows "Author" — not just "Business Owner."</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q2" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q2" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q2" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q2" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q2" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>I can extract a year's worth of content from my expertise in under 4 hours.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q3" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q3" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q3" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q3" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q3" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+          </div>
+
+          <div class="audit-divider"></div>
+
+          <!-- CATEGORY 2 -->
+          <div class="audit-category">
+            <h4>Client Acquisition & LinkedIn</h4>
+
+            <div class="audit-question">
+              <p>My LinkedIn profile consistently converts profile views into high-ticket inbound inquiries.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q4" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q4" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q4" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q4" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q4" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>I have a proven, repeatable system for turning a cold DM into a signed contract without manual chasing.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q5" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q5" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q5" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q5" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q5" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>I appear consistently in my Dream 100 prospects' feeds without manual daily effort.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q6" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q6" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q6" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q6" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q6" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+          </div>
+
+          <div class="audit-divider"></div>
+
+          <!-- CATEGORY 3 -->
+          <div class="audit-category">
+            <h4>Scale Infrastructure</h4>
+
+            <div class="audit-question">
+              <p>My voice is being turned into 30+ pieces of monthly content across all platforms — automatically.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q7" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q7" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q7" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q7" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q7" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>I have a system sending personalized, high-intent messages to new ideal clients every day.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q8" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q8" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q8" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q8" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q8" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+
+            <div class="audit-question">
+              <p>I can see exactly where every prospect is in my pipeline — and where revenue is coming from — at any moment.</p>
+              <div class="audit-scale">
+                <label><input type="radio" name="q9" value="1"><span class="scale-btn">1</span></label>
+                <label><input type="radio" name="q9" value="2"><span class="scale-btn">2</span></label>
+                <label><input type="radio" name="q9" value="3"><span class="scale-btn">3</span></label>
+                <label><input type="radio" name="q9" value="4"><span class="scale-btn">4</span></label>
+                <label><input type="radio" name="q9" value="5"><span class="scale-btn">5</span></label>
+              </div>
+              <div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div>
+            </div>
+          </div>
+
+          <div class="audit-submit">
+            <button type="button" class="btn-primary" onclick="calculateAudit()" style="width: 100%; padding: 20px; font-size: 14px;">
+              Reveal My Authority Score →
+            </button>
+          </div>
+
+        </form>
+
+        <div id="audit-result">
+          <div class="eyebrow" style="margin-bottom: 8px;">Your Legacy Audit Score</div>
+          <h3 id="result-score">—</h3>
+          <span id="result-phase">Loading your phase...</span>
+          <p id="result-message">Loading...</p>
+          <a href="#" class="btn-primary" style="margin-top: 8px;" onclick="scrollToContact()">Apply for the Authority Package →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Qualification</div>
+      <h2>This Is Built For<br/>A Specific Kind of Founder.</h2>
+      <p>Talk Your Book isn't for everyone. It's engineered for leaders who are already accomplished — and ready to become undeniable.</p>
+    </div>
+
+    <div class="for-grid">
+      <div class="for-column">
+        <h3><span class="for-badge yes">This Is You</span></h3>
+        <ul class="for-list yes">
+          <li>You are an established founder, executive, or expert with a proven track record — but your visibility doesn't match your expertise.</li>
+          <li>You want to become the go-to authority in your space without adding more to your plate or grinding harder.</li>
+          <li>You understand that intellectual property is the highest-leverage asset a leader can own.</li>
+          <li>You're ready to invest in a 12-month transformation, not a quick fix.</li>
+          <li>You want your business to continue generating leads, clients, and opportunities without your constant personal presence.</li>
+        </ul>
+      </div>
+
+      <div class="for-column">
+        <h3><span class="for-badge no">Not a Fit If...</span></h3>
+        <ul class="for-list no">
+          <li>You're looking for a ghostwriter who writes a book and disappears — without building the ecosystem around it.</li>
+          <li>You want a passive program you can watch at your own pace without committing to the partnership.</li>
+          <li>You're not willing to show up for the extraction process — your book requires your voice and genius.</li>
+          <li>You're still in the idea stage of your business and don't yet have a proven method or expertise to extract.</li>
+          <li>You're expecting results without a long-term view — authority compounds over months, not days.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Common Questions</div>
+      <h2>Everything You're<br/>Wondering About.</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How much time do I actually need to invest in this?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Significantly less than you'd expect. The AI-driven "Talk Your Book" extraction process requires only 2–4 hours of your time total for the book itself. In Phase 2, we meet once a month to ensure alignment. In Phase 3, you meet with the team twice monthly for Authority Dashboard reviews. The entire program is designed around the reality that your time is worth far more than sitting at a keyboard — so we handle the heavy lifting.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if I've never written anything before?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            That's exactly who this is for. The "Talk Your Book" method is built for experts who have the knowledge but not the desire — or time — to sit down and write. We extract your genius through structured conversations, AI-assisted frameworks, and our team's editorial expertise. You talk; we build the book.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What's the investment?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            The Talk Your Book Authority Package is a premium 12-month engagement — the investment reflects the depth of transformation, the agency hours involved, and the long-term revenue ROI our clients experience. Exact pricing is discussed during your application review call, as we customize each partnership to your specific goals and business stage. Take the Legacy Audit first to see if we're a fit.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How is this different from just hiring a ghostwriter?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            A ghostwriter gives you a manuscript. Talk Your Book gives you a business transformation engine. We don't stop at the book — we build the speaking pitch kit, the LinkedIn outreach system, the content engine, the client acquisition pipeline, and the AI-powered management layer that keeps it all running. The book is the foundation. The ecosystem is the product.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How many partners do you take on at a time?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We keep cohorts intentionally small — a maximum of 6 partners per cohort — to ensure every client receives genuine high-touch attention across all three phases. This isn't a course or a membership. It's a partnership. Spots are limited by design.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="apply" class="final-cta">
+  <div class="container">
+    <div class="eyebrow">Begin Your Application</div>
+    <h2>Your Legacy<br/>Starts With <em>One Audit.</em></h2>
+    <p>Take the free Legacy Audit to identify your exact Authority Gaps and find out if Talk Your Book is the right next step for your business.</p>
+    <a href="#audit" class="btn-primary" style="font-size: 14px; padding: 20px 56px;">Take the Legacy Audit — It's Free →</a>
+    <p class="final-cta-note">Limited to 6 partners per cohort · Applications reviewed within 48 hours</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Talk Your Book™</div>
+  <div class="footer-copy">© 2026 The 1 and Only Publishing Company · IYH Innertainment LLC · All rights reserved.</div>
+  <ul class="footer-links">
+    <li><a href="#phases">The Journey</a></li>
+    <li><a href="#pillars">What's Included</a></li>
+    <li><a href="#audit">Legacy Audit</a></li>
+  </ul>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Audit calculator
+  function calculateAudit() {
+    const form = document.getElementById('auditForm');
+    let total = 0;
+    let answered = 0;
+
+    for (let i = 1; i <= 9; i++) {
+      const radios = form.querySelectorAll(`input[name="q${i}"]:checked`);
+      if (radios.length > 0) {
+        total += parseInt(radios[0].value);
+        answered++;
+      }
+    }
+
+    if (answered < 9) {
+      // Fill unanswered with 1
+      for (let i = 1; i <= 9; i++) {
+        const radios = form.querySelectorAll(`input[name="q${i}"]:checked`);
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk Your Book Authority Package | Build Your Legacy Ecosystem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1628;
+      --navy-mid: #102040;
+      --navy-light: #16305a;
+      --gold: #C9A84C;
+      --gold-light: #E2C47A;
+      --gold-pale: #f5e9c8;
+      --white: #FFFFFF;
+      --off-white: #F8F5EE;
+      --text-muted: #8A9BBF;
+      --border: rgba(201,168,76,0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 10px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(22,48,90,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      margin-bottom: 32px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    .hero h1 { font-size: clamp(48px, 7vw, 96px); font-weight: 300; max-width: 900px; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 400; color: var(--gold-light); margin-bottom: 24px; font-style: italic; }
+    .hero-desc { font-size: 16px; color: var(--text-muted); max-width: 560px; margin: 0 auto 48px; line-height: 1.8; }
+    .hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+    .btn-primary { background: var(--gold); color: var(--navy); border: none; padding: 18px 48px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.25s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+    .btn-secondary { background: transparent; color: var(--gold); border: 1px solid var(--border); padding: 17px 40px; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.25s; }
+    .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+    .hero-note { font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; }
+    .hero-stats { display: flex; gap: 56px; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--gold); display: block; }
+    .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    section { padding: 100px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 { font-size: clamp(36px, 5vw, 64px); margin-top: 12px; margin-bottom: 16px; }
+    .section-header p { font-size: 17px; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+    .problem-section { background: var(--navy-mid); }
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+    .problem-card { background: var(--navy); padding: 40px 32px; position: relative; }
+    .problem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .problem-num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 8px; }
+    .problem-card h3 { font-size: 22px; margin-bottom: 12px; color: var(--white); }
+    .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+
+    .solution-intro { max-width: 760px; margin: 0 auto; text-align: center; }
+    .solution-intro h2 { font-size: clamp(40px, 5.5vw, 72px); margin-bottom: 24px; }
+    .solution-intro p { font-size: 18px; color: var(--text-muted); margin-bottom: 16px; }
+    .highlight-box { border: 1px solid var(--border); padding: 32px 40px; margin: 48px 0; background: rgba(201,168,76,0.04); text-align: left; }
+    .highlight-box p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 30px); font-style: italic; color: var(--gold-light); line-height: 1.5; margin: 0; }
+
+    .phases-section { background: var(--navy-mid); }
+    .phases-timeline { position: relative; margin-top: 16px; }
+    .phases-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1)); transform: translateX(-50%); }
+    .phase-block { display: grid; grid-template-columns: 1fr 60px 1fr; gap: 0; align-items: start; margin-bottom: 80px; }
+    .phase-block:nth-child(even) .phase-content { grid-column: 3; }
+    .phase-block:nth-child(even) .phase-node { grid-column: 2; }
+    .phase-block:nth-child(even) .phase-empty { grid-column: 1; }
+    .phase-block:nth-child(odd) .phase-content { grid-column: 1; text-align: right; }
+    .phase-block:nth-child(odd) .phase-node { grid-column: 2; }
+    .phase-block:nth-child(odd) .phase-empty { grid-column: 3; }
+    .phase-node { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
+    .phase-dot { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--gold); background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--gold); flex-shrink: 0; }
+    .phase-content { background: var(--navy); border: 1px solid var(--border); padding: 36px; position: relative; }
+    .phase-content:hover { border-color: rgba(201,168,76,0.5); transition: border-color 0.3s; }
+    .phase-tag { display: inline-block; background: rgba(201,168,76,0.12); color: var(--gold); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 12px; margin-bottom: 16px; }
+    .phase-content h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 8px; }
+    .phase-duration { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 16px; }
+    .phase-content p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+    .phase-deliverables { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .phase-deliverables li { font-size: 14px; color: var(--white); display: flex; align-items: flex-start; gap: 10px; }
+    .phase-block:nth-child(odd) .phase-deliverables li { flex-direction: row-reverse; text-align: right; }
+    .phase-deliverables li::before { content: '◆'; color: var(--gold); font-size: 8px; margin-top: 5px; flex-shrink: 0; }
+    .phase-block:nth-child(odd) .phase-deliverables li::before { order: 1; }
+
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+    .pillar-card { border: 1px solid var(--border); padding: 48px 36px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+    .pillar-card:hover { border-color: rgba(201,168,76,0.6); transform: translateY(-4px); }
+    .pillar-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity 0.3s; }
+    .pillar-card:hover::after { opacity: 1; }
+    .pillar-icon { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 16px; }
+    .pillar-card h3 { font-size: 26px; margin-bottom: 8px; }
+    .pillar-subtitle { font-size: 12px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+    .pillar-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 24px; }
+    .pillar-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pillar-features li { font-size: 13px; color: var(--white); display: flex; align-items: flex-start; gap: 10px; }
+    .pillar-features li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+    .flywheel-section { background: var(--navy-mid); }
+    .flywheel-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .flywheel-visual { position: relative; width: 100%; aspect-ratio: 1; max-width: 440px; margin: 0 auto; }
+    .flywheel-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; border-radius: 50%; background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; z-index: 2; }
+    .flywheel-center span { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 700; color: var(--navy); letter-spacing: 0.04em; line-height: 1.3; }
+    .flywheel-ring { position: absolute; inset: 10%; border-radius: 50%; border: 1px dashed rgba(201,168,76,0.35); animation: spin 30s linear infinite; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .flywheel-outer { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(201,168,76,0.15); }
+    .flywheel-node { position: absolute; transform: translate(-50%, -50%); text-align: center; }
+    .fw-dot { width: 64px; height: 64px; border-radius: 50%; background: var(--navy); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 20px; }
+    .fw-label { font-size: 10px; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; font-family: 'Inter', sans-serif; }
+    .flywheel-content h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 20px; }
+    .flywheel-content p { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+    .flywheel-steps { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .flywheel-steps li { display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--gold); line-height: 1; min-width: 32px; }
+    .step-text { font-size: 14px; color: var(--text-muted); padding-top: 4px; }
+    .step-text strong { color: var(--white); display: block; font-size: 15px; margin-bottom: 2px; }
+
+    .audit-section { background: var(--navy); }
+    .audit-wrapper { max-width: 800px; margin: 0 auto; }
+    .audit-intro { text-align: center; margin-bottom: 56px; }
+    .audit-intro h2 { font-size: clamp(36px, 5vw, 60px); margin: 12px 0 16px; }
+    .audit-intro p { font-size: 16px; color: var(--text-muted); max-width: 520px; margin: 0 auto; }
+    .audit-card { border: 1px solid var(--border); padding: 48px; background: rgba(22,48,90,0.3); }
+    .audit-category { margin-bottom: 36px; }
+    .audit-category h4 { font-size: 18px; color: var(--gold-light); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .audit-category h4::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+    .audit-question { margin-bottom: 20px; }
+    .audit-question p { font-size: 14px; color: var(--white); margin-bottom: 10px; }
+    .audit-scale { display: flex; gap: 8px; }
+    .audit-scale label { flex: 1; text-align: center; }
+    .audit-scale input[type="radio"] { display: none; }
+    .scale-btn { display: block; padding: 8px 4px; border: 1px solid rgba(201,168,76,0.3); text-align: center; font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+    .audit-scale input[type="radio"]:checked + .scale-btn { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
+    .scale-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .scale-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); letter-spacing: 0.06em; margin-top: 4px; }
+    .audit-divider { height: 1px; background: var(--border); margin: 32px 0; }
+    .audit-submit { text-align: center; }
+    #audit-result { display: none; margin-top: 40px; border: 1px solid var(--gold); padding: 36px; background: rgba(201,168,76,0.05); text-align: center; }
+    #audit-result h3 { font-size: 32px; color: var(--gold); margin-bottom: 12px; }
+    #audit-result p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+    #result-phase { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 600; color: var(--white); display: block; margin: 16px 0; }
+
+    .for-section { background: var(--navy-mid); }
+    .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+    .for-column h3 { font-size: 28px; margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+    .for-column h3 .for-badge { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; }
+    .for-badge.yes { background: rgba(201,168,76,0.15); color: var(--gold); }
+    .for-badge.no { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+    .for-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .for-list li { font-size: 15px; color: var(--text-muted); display: flex; align-items: flex-start; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .for-list li:last-child { border-bottom: none; }
+    .for-list.yes li::before { content: '✓'; color: var(--gold); font-size: 14px; font-weight: 600; flex-shrink: 0; }
+    .for-list.no li::before { content: '✗'; color: var(--text-muted); opacity: 0.4; font-size: 14px; flex-shrink: 0; }
+
+    .faq-section { background: var(--navy); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 28px 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.2s; }
+    .faq-question:hover { color: var(--gold-light); }
+    .faq-icon { font-size: 20px; color: var(--gold); transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner { padding-bottom: 28px; font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+
+    .final-cta { background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%); text-align: center; padding: 120px 24px; position: relative; overflow: hidden; }
+    .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+    .final-cta h2 { font-size: clamp(40px, 6vw, 80px); max-width: 800px; margin: 16px auto 24px; }
+    .final-cta p { font-size: 17px; color: var(--text-muted); max-width: 540px; margin: 0 auto 48px; }
+    .final-cta-note { margin-top: 24px; font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; }
+
+    footer { background: rgba(0,0,0,0.4); border-top: 1px solid var(--border); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); font-weight: 600; }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .problem-grid, .pillars-grid { grid-template-columns: 1fr; }
+      .flywheel-wrapper, .for-grid { grid-template-columns: 1fr; gap: 48px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-stats { gap: 32px; }
+      .phases-timeline::before { display: none; }
+      .phase-block { display: block; margin-bottom: 32px; }
+      .phase-node { display: none; }
+      .phase-content { text-align: left !important; }
+      .phase-deliverables li { flex-direction: row !important; }
+      .phase-deliverables li::before { order: 0 !important; }
+      .audit-card { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Talk Your Book™</a>
+  <ul class="nav-links">
+    <li><a href="#phases">The Journey</a></li>
+    <li><a href="#pillars">What's Included</a></li>
+    <li><a href="#flywheel">The Flywheel</a></li>
+    <li><a href="#audit">Legacy Audit</a></li>
+  </ul>
+  <a href="#audit" class="nav-cta">Take the Legacy Audit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">A 12-Month Authority Transformation</div>
+  <h1>Stop Owning a <em>Business.</em><br/>Start Owning an <em>Industry.</em></h1>
+  <p class="hero-sub">The Talk Your Book Authority Package</p>
+  <p class="hero-desc">A private 12-month engagement for founders, executives, and thought leaders who are done being the best-kept secret in their field — and ready to build an ecosystem of authority that works while they sleep.</p>
+  <div class="hero-cta-group">
+    <a href="#audit" class="btn-primary">Take the Free Legacy Audit</a>
+    <a href="#phases" class="btn-secondary">See the 12-Month Journey</a>
+    <p class="hero-note">Limited to 6 partners per cohort</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">12</span><span class="stat-label">Months</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Phases</span></div>
+    <div class="stat-item"><span class="stat-num">1</span><span class="stat-label">Legacy</span></div>
+  </div>
+</section>
+
+<section class="problem-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The Authority Gap</div>
+      <h2>Your Genius Is Trapped.<br/>Here's Why.</h2>
+      <p>Most high-performing founders face the same three invisible ceilings.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="problem-num">01</div><h3>You're the bottleneck</h3><p>Every lead, every sale, every piece of content depends on you. If you stop talking, revenue stops flowing. That's not a business — that's a high-paid job.</p></div>
+      <div class="problem-card"><div class="problem-num">02</div><h3>You have no authority asset</h3><p>When a dream client Googles you, they find a service provider. Not an author. Without a published book, your credibility ceiling is permanently low.</p></div>
+      <div class="problem-card"><div class="problem-num">03</div><h3>Your ecosystem is leaking</h3><p>Even with a book — without a client acquisition system, content engine, and lead pipeline working in sync, you're leaving seven figures on the table monthly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--navy); padding: 100px 24px;">
+  <div class="container">
+    <div class="solution-intro">
+      <div class="eyebrow">The Solution</div>
+      <h2>We Don't Write Your Book.<br/>We Build Your Empire.</h2>
+      <p>Talk Your Book is a 12-month, high-touch authority partnership that takes you from overlooked expert to Category of One.</p>
+      <div class="highlight-box"><p>"Most authors launch a book and then it dies. In the Talk Your Book framework, the book is just the engine. We build the entire fuel system around it."</p></div>
+      <p>Across three phases, we extract your genius, publish your authority, structure your business ecosystem, and activate a fully automated client acquisition machine.</p>
+    </div>
+  </div>
+</section>
+
+<section id="phases" class="phases-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The 12-Month Journey</div>
+      <h2>Three Phases.<br/>One Complete Transformation.</h2>
+      <p>Every phase has a clear outcome. By month 12, you own a self-sustaining authority ecosystem.</p>
+    </div>
+    <div class="phases-timeline">
+      <div class="phase-block">
+        <div class="phase-content">
+          <div class="phase-tag">Phase One</div>
+          <h3>The Book</h3>
+          <div class="phase-duration">Months 1 – 6 · The Asset Extraction</div>
+          <p>Using the AI-driven “Talk Your Book” framework, we extract your genius and transform it into a professionally published book that acts as your 24/7 brand ambassador.</p>
+          <ul class="phase-deliverables">
+            <li>AI-guided manuscript extraction</li>
+            <li>Complete ghost-writing and editorial development</li>
+            <li>Brand positioning and intellectual property framework</li>
+            <li>Professional publishing through The 1 and Only Publishing</li>
+            <li>Published Author status — your credibility ceiling rises permanently</li>
+          </ul>
+        </div>
+        <div class="phase-node"><div class="phase-dot">I</div></div>
+        <div class="phase-empty"></div>
+      </div>
+      <div class="phase-block">
+        <div class="phase-empty"></div>
+        <div class="phase-node"><div class="phase-dot">II</div></div>
+        <div class="phase-content">
+          <div class="phase-tag">Phase Two</div>
+          <h3>The Business Structure</h3>
+          <div class="phase-duration">Months 7 – 9 · The Ecosystem Build</div>
+          <p>We architect the business infrastructure that turns your authority asset into a lead-generating, client-attracting ecosystem.</p>
+          <ul class="phase-deliverables">
+            <li>Authority Flywheel activation — speaking, media, and podcast pitch kits</li>
+            <li>LinkedIn optimization and outbound prospecting engine</li>
+            <li>DM to Done™ client acquisition system implementation</li>
+            <li>Offer architecture aligned to your book's framework</li>
+            <li>Automated content engine — 30+ monthly assets from your book</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase-block">
+        <div class="phase-content">
+          <div class="phase-tag">Phase Three</div>
+          <h3>Client Acquisition &amp; Scale</h3>
+          <div class="phase-duration">Months 10 – 12 · The Revenue Activation</div>
+          <p>Our AI systems and agency team manage your outbound outreach, pipeline, and content — so your book keeps working while you focus on closing and delivering.</p>
+          <ul class="phase-deliverables">
+            <li>AI-powered outbound LinkedIn prospecting to your Dream 100</li>
+            <li>Pipeline management with bi-monthly Authority Dashboard reviews</li>
+            <li>Book-to-lead funnel with automated nurture sequences</li>
+            <li>High-ticket backend offer integration and sales support</li>
+            <li>Profitability optimization — maximizing ROI on your authority investment</li>
+          </ul>
+        </div>
+        <div class="phase-node"><div class="phase-dot">III</div></div>
+        <div class="phase-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pillars" style="background: var(--navy); padding: 100px 24px;">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">What's Included</div>
+      <h2>Three Systems.<br/>One Unified Ecosystem.</h2>
+      <p>Your authority package combines three proven systems, each designed to build on the last.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card"><div class="pillar-icon">01</div><h3>The DM to Done™ System</h3><div class="pillar-subtitle">Client Acquisition Framework</div><p>A proven, repeatable framework for turning cold outreach into signed contracts.</p><ul class="pillar-features"><li>High-conversion DM scripts in your voice</li><li>AI-scoring to identify sales-ready leads</li><li>Pipeline tracking and nurture sequences</li><li>Dream 100 prospect identification</li></ul></div>
+      <div class="pillar-card"><div class="pillar-icon">02</div><h3>Client Acquisition System</h3><div class="pillar-subtitle">Outbound Lead Generation Engine</div><p>An AI-driven machine that scans LinkedIn for your ideal clients and personalizes outreach at scale.</p><ul class="pillar-features"><li>LinkedIn profile optimization</li><li>Automated personalized outreach</li><li>Lead scoring and prioritization dashboard</li><li>Social reciprocity system — daily Dream 100 presence</li></ul></div>
+      <div class="pillar-card"><div class="pillar-icon">03</div><h3>The Authority Engine</h3><div class="pillar-subtitle">Content &amp; Thought Leadership System</div><p>Your book becomes 365 days of thought leadership. One chapter generates 20-30 pieces of content.</p><ul class="pillar-features"><li>30-day omni-channel content flow</li><li>Speaking pitch kit and podcast guest framework</li><li>Media feature strategy</li><li>Email list building and book-to-lead funnel</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="flywheel" class="flywheel-section">
+  <div class="container">
+    <div class="flywheel-wrapper">
+      <div class="flywheel-visual">
+        <div class="flywheel-outer"></div>
+        <div class="flywheel-ring"></div>
+        <div class="flywheel-center"><span>YOUR<br/>BOOK</span></div>
+        <div class="flywheel-node" style="top:4%; left:50%;"><div class="fw-dot">🎤</div><div class="fw-label">Speaking</div></div>
+        <div class="flywheel-node" style="top:25%; left:95%;"><div class="fw-dot">🎤</div><div class="fw-label">Podcasts</div></div>
+        <div class="flywheel-node" style="top:70%; left:93%;"><div class="fw-dot">📰</div><div class="fw-label">Media</div></div>
+        <div class="flywheel-node" style="top:93%; left:50%;"><div class="fw-dot">✍️</div><div class="fw-label">Content</div></div>
+        <div class="flywheel-node" style="top:70%; left:7%;"><div class="fw-dot">💼</div><div class="fw-label">Clients</div></div>
+        <div class="flywheel-node" style="top:25%; left:5%;"><div class="fw-dot">🔁</div><div class="fw-label">More Reach</div></div>
+      </div>
+      <div class="flywheel-content">
+        <div class="eyebrow">The Authority Flywheel</div>
+        <h2>Once It Spins,<br/>It Never Stops.</h2>
+        <p>The real value of a book isn't the book itself — it's the authority ecosystem it creates. Each channel feeds the others. Over time, the system compounds.</p>
+        <ul class="flywheel-steps">
+          <li><span class="step-num">1</span><div class="step-text"><strong>The Book opens the door</strong>Event organizers, podcast hosts, and journalists prefer working with authors.</div></li>
+          <li><span class="step-num">2</span><div class="step-text"><strong>Visibility creates inbound</strong>Every speaking slot and podcast sends new audiences into your pipeline.</div></li>
+          <li><span class="step-num">3</span><div class="step-text"><strong>The flywheel accelerates</strong>As opportunities compound, your authority grows — and so does demand for your work.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audit" class="audit-section">
+  <div class="container">
+    <div class="audit-intro">
+      <div class="eyebrow">Take the Assessment</div>
+      <h2>The Legacy Audit</h2>
+      <p>Score yourself on each pillar to discover your Authority Gap and which phase of Talk Your Book you need most.</p>
+    </div>
+    <div class="audit-wrapper">
+      <div class="audit-card">
+        <form id="auditForm">
+          <div class="audit-category">
+            <h4>Authority Asset</h4>
+            <div class="audit-question"><p>I have a published book that acts as my 24/7 brand ambassador.</p><div class="audit-scale"><label><input type="radio" name="q1" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q1" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q1" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q1" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q1" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>When a high-value prospect Googles me, the first result shows "Author".</p><div class="audit-scale"><label><input type="radio" name="q2" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q2" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q2" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q2" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q2" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>I can extract a year's worth of content from my expertise in under 4 hours.</p><div class="audit-scale"><label><input type="radio" name="q3" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q3" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q3" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q3" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q3" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+          </div>
+          <div class="audit-divider"></div>
+          <div class="audit-category">
+            <h4>Client Acquisition &amp; LinkedIn</h4>
+            <div class="audit-question"><p>My LinkedIn profile consistently converts profile views into high-ticket inbound inquiries.</p><div class="audit-scale"><label><input type="radio" name="q4" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q4" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q4" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q4" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q4" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>I have a proven system for turning a cold DM into a signed contract without manual chasing.</p><div class="audit-scale"><label><input type="radio" name="q5" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q5" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q5" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q5" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q5" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>I appear consistently in my Dream 100 prospects' feeds without daily manual effort.</p><div class="audit-scale"><label><input type="radio" name="q6" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q6" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q6" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q6" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q6" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+          </div>
+          <div class="audit-divider"></div>
+          <div class="audit-category">
+            <h4>Scale Infrastructure</h4>
+            <div class="audit-question"><p>My voice is being turned into 30+ pieces of monthly content across all platforms automatically.</p><div class="audit-scale"><label><input type="radio" name="q7" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q7" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q7" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q7" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q7" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>I have a system sending personalized, high-intent messages to new ideal clients every day.</p><div class="audit-scale"><label><input type="radio" name="q8" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q8" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q8" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q8" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q8" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+            <div class="audit-question"><p>I can see exactly where every prospect is in my pipeline at any moment.</p><div class="audit-scale"><label><input type="radio" name="q9" value="1"><span class="scale-btn">1</span></label><label><input type="radio" name="q9" value="2"><span class="scale-btn">2</span></label><label><input type="radio" name="q9" value="3"><span class="scale-btn">3</span></label><label><input type="radio" name="q9" value="4"><span class="scale-btn">4</span></label><label><input type="radio" name="q9" value="5"><span class="scale-btn">5</span></label></div><div class="scale-labels"><span>Non-existent</span><span>Fully Automated</span></div></div>
+          </div>
+          <div class="audit-submit"><button type="button" class="btn-primary" onclick="calculateAudit()" style="width:100%;padding:20px;font-size:14px;">Reveal My Authority Score →</button></div>
+        </form>
+        <div id="audit-result">
+          <div class="eyebrow" style="margin-bottom:8px;">Your Legacy Audit Score</div>
+          <h3 id="result-score">—</h3>
+          <span id="result-phase">Loading...</span>
+          <p id="result-message">Loading...</p>
+          <a href="#apply" class="btn-primary" style="margin-top:8px;">Apply for the Authority Package →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="for-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Qualification</div>
+      <h2>This Is Built For<br/>A Specific Kind of Founder.</h2>
+    </div>
+    <div class="for-grid">
+      <div class="for-column"><h3><span class="for-badge yes">This Is You</span></h3><ul class="for-list yes"><li>Established founder or expert with a proven track record but visibility that doesn't match your expertise.</li><li>Ready to become the go-to authority in your space without adding more to your plate.</li><li>You understand that intellectual property is the highest-leverage asset a leader can own.</li><li>Ready to invest in a 12-month transformation, not a quick fix.</li><li>You want your business generating leads without your constant personal presence.</li></ul></div>
+      <div class="for-column"><h3><span class="for-badge no">Not a Fit If...</span></h3><ul class="for-list no"><li>You want a ghostwriter who writes a book and disappears without building the ecosystem.</li><li>You want a passive program you can watch at your own pace without committing.</li><li>You're not willing to show up for the extraction process.</li><li>You're still in the idea stage without a proven method or expertise to extract.</li><li>You're expecting results without a long-term view.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header"><div class="eyebrow">Common Questions</div><h2>Everything You're<br/>Wondering About.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">How much time do I actually need to invest?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Significantly less than you'd expect. The AI-driven extraction requires only 2–4 hours of your time total for the book. In Phase 2, we meet once a month. In Phase 3, you meet with the team twice monthly. The program is designed around the reality that your time is worth far more than sitting at a keyboard.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">What if I've never written anything before?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">That's exactly who this is for. The "Talk Your Book" method is built for experts who have the knowledge but not the desire or time to write. We extract your genius through structured conversations and AI-assisted frameworks. You talk; we build the book.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">What's the investment?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">The Talk Your Book Authority Package is a premium 12-month engagement. Exact pricing is discussed during your application review call, as we customize each partnership to your specific goals and business stage. Take the Legacy Audit first to see if we're a fit.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">How is this different from just hiring a ghostwriter?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">A ghostwriter gives you a manuscript. Talk Your Book gives you a business transformation engine. We build the speaking pitch kit, LinkedIn outreach system, content engine, client acquisition pipeline, and AI-powered management layer. The book is the foundation. The ecosystem is the product.</div></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">How many partners do you take on at a time?<span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">We keep cohorts to a maximum of 6 partners to ensure every client receives genuine high-touch attention. This isn't a course or a membership. It's a partnership. Spots are limited by design.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="final-cta">
+  <div class="container">
+    <div class="eyebrow">Begin Your Application</div>
+    <h2>Your Legacy<br/>Starts With <em>One Audit.</em></h2>
+    <p>Take the free Legacy Audit to identify your exact Authority Gaps and find out if Talk Your Book is the right next step.</p>
+    <a href="#audit" class="btn-primary" style="font-size:14px;padding:20px 56px;">Take the Legacy Audit — It's Free →</a>
+    <p class="final-cta-note">Limited to 6 partners per cohort · Applications reviewed within 48 hours</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Talk Your Book™</div>
+  <div class="footer-copy">© 2026 The 1 and Only Publishing Company · IYH Innertainment LLC</div>
+  <ul class="footer-links"><li><a href="#phases">The Journey</a></li><li><a href="#pillars">What's Included</a></li><li><a href="#audit">Legacy Audit</a></li></ul>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  function calculateAudit() {
+    const form = document.getElementById('auditForm');
+    let total = 0;
+    for (let i = 1; i <= 9; i++) {
+      const checked = form.querySelector('input[name="q'+i+'"]:checked');
+      total += checked ? parseInt(checked.value) : 1;
+    }
+    const resultDiv = document.getElementById('audit-result');
+    document.getElementById('result-score').textContent = total + ' / 45';
+    if (total <= 20) {
+      document.getElementById('result-phase').textContent = 'Phase I Ready — The Book';
+      document.getElementById('result-message').textContent = 'Your genius is still trapped. You have the expertise, but without a published authority asset, you\'re invisible to high-value clients. Phase 1 is your emergency exit from the grind.';
+    } else if (total <= 32) {
+      document.getElementById('result-phase').textContent = 'Phase II Ready — The Ecosystem';
+      document.getElementById('result-message').textContent = 'You have momentum, but your Build is leaky. You\'re leaving serious revenue on the table. Phase 2 is where we architect the machine that makes your authority compound.';
+    } else {
+      document.getElementById('result-phase').textContent = 'Phase III Ready — The Scale';
+      document.getElementById('result-message').textContent = 'You\'ve built the foundation. Now let our AI and Agency team take the wheel. Phase 3 activates the full client acquisition machine so you stay in your Zone of Genius.';
+    }
+    resultDiv.style.display = 'block';
+    resultDiv.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+</script>
+</body>
+</html>
